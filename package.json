@@ -1,0 +1,13 @@
+{
+  "name": "transaction-validator",
+  "version": "1.0.0",
+  "description": "JavaScript modular validation system for transactions",
+  "main": "src/main.js",
+  "type": "module",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "keywords": ["validator", "transaction", "javascript"],
+  "author": "Your Name",
+  "license": "MIT"
+}
