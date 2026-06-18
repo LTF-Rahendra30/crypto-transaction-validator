@@ -22,7 +22,7 @@ export function validateTransaction(transaction){
     if (!fromValidation.isValid){
         errors.push({
             field: "from",
-            reason: fromValidation,
+            reason: fromValidation.reason,
         });
     }
     
@@ -31,7 +31,7 @@ export function validateTransaction(transaction){
     if (!toValidation.isValid){
         errors.push({
             field: "to",
-            reason: toValidation,
+            reason: toValidation.reason,
         });
     }
 
@@ -49,7 +49,7 @@ export function validateTransaction(transaction){
     if (!gasValidation.isValid){
         errors.push({
             field: "gasPrice",
-            reason: gasPriceValidation.reason,
+            reason: gasValidation.reason,
         });
     }
 
@@ -69,3 +69,15 @@ export function validateTransaction(transaction){
             : `${errors.length} validation error(s) found`,
     };
 }
+
+const transaction = {
+  id: 1,
+  from: "0x742d35Cc6634C0532925a3b844Bc0e7d21409fde",
+  to: "x8ba1f109551bD432803012645Ac136ddd64DBA72",
+  amount: 1.5,
+  gasPrice: -4
+};
+
+// Pakai function:
+const result = validateTransaction(transaction);
+console.log(result);

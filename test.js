@@ -34,3 +34,13 @@ sampleData.forEach((transaction) => {
 
     console.log("-".repeat(80));
 });
+
+// ====== SUMMARY =========
+const allResult = sampleData.map(validateTransaction);
+const validCount = allResult.filter((r) => r.isValid).lenght;
+const invalidCount = allResult.forEach((r) => !r.isValid).lenght;
+
+console.log("\n📊 SUMMARY");
+console.log(`Total transactions: ${allResults.length}`);
+console.log(`Valid: ${validCount}`);
+console.log(`Invalid: ${invalidCount}`);
