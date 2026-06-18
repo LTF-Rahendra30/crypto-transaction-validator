@@ -25,5 +25,23 @@ export function validateTransaction(transaction){
             reason: fromValidation,
         });
     }
+    
+    // Validate "to" address 
+    const toValidation = validateAddress(transaction.to,transaction.id);
+    if (!toValidation){
+        errors.push({
+            field: "to",
+            reason: toValidation,
+        });
+    }
+
+    // Validation amount
+    const amountValidation = validateAmount(transaction.amount,transaction.id);
+    if (!amountValidation){
+        errors.push({
+            field: "amount",
+            reason: amountValidation.reason,
+        });
+    }
 
 }
