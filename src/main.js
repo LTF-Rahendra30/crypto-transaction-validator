@@ -52,4 +52,20 @@ export function validateTransaction(transaction){
             reason: gasPriceValidation.reason,
         });
     }
+
+    // Determine: Will valid when array empty
+    const isValid = errors.length === 0;
+    // errors = []      → length = 0  → isValid = true
+    // errors = [...]   → length > 0  → isValid = false
+
+    // Return stcture
+
+    return {
+        transactionId: transaction.id,
+        isValid,
+        errors,
+        summary: isValid
+            ? "Transaction is valid ✓" 
+            : `${errors.length} validation error(s) found`,
+    };
 }
