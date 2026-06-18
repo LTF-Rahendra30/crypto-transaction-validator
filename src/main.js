@@ -19,7 +19,7 @@ export function validateTransaction(transaction){
 
     // Validate "from" addres
     const fromValidation = validateAddress(transaction.from,transaction.id);
-    if (!fromValidation){
+    if (!fromValidation.isValid){
         errors.push({
             field: "from",
             reason: fromValidation,
@@ -28,7 +28,7 @@ export function validateTransaction(transaction){
     
     // Validate "to" address 
     const toValidation = validateAddress(transaction.to,transaction.id);
-    if (!toValidation){
+    if (!toValidation.isValid){
         errors.push({
             field: "to",
             reason: toValidation,
@@ -37,11 +37,13 @@ export function validateTransaction(transaction){
 
     // Validation amount
     const amountValidation = validateAmount(transaction.amount,transaction.id);
-    if (!amountValidation){
+    if (!amountValidation.isValid){
         errors.push({
             field: "amount",
             reason: amountValidation.reason,
         });
     }
 
+    // Validation gas
+    const gasValidation = validateGassPrice()
 }
