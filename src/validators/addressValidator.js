@@ -13,12 +13,6 @@ import { ERROR_MASSAGE,createValidationResult } from "../utils/errors.js";
  */
 
 export function validateAddress(address,transactionId){
-    // Check 1: typeof address
-  // Check 2: startsWith("0x")
-  // Check 3: length === 42
-  // Check 4: hexadecimal validation (bisa pakai regex atau manual)
-  
-  // Return result pake createValidationResult()
 
 //   CHECK TYPOF ADDRESS
     if (typeof address !== 'string'){
@@ -49,7 +43,7 @@ export function validateAddress(address,transactionId){
 
     // CHECK HEXADECIMAL FORMAT, after "0x" (0-9, a-f)
     const hexPart = address.slice(2);
-    const isHexadecimal = /^[0-9a-F{40}$]/.test(hexPart);
+    const isHexadecimal = /^[0-9a-fA-F]{40}$/.test(hexPart);
 
     if (!isHexadecimal){
         return createValidationResult(
@@ -59,6 +53,8 @@ export function validateAddress(address,transactionId){
         );
     }
 
-    // ALL CHECK PART
+    // // ALL CHECK PART
     return createValidationResult(true,transactionId);
 }
+
+// console.log(validateAddress("0x742d35Cc6634C0532925a3b844Bc0e7d21409fde",1));
