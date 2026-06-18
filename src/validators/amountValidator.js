@@ -43,6 +43,15 @@ export function validateAmount(amount,transactionId){
         )
     }
     return createValidationResult(true,transactionId);
+
+    // CHECK ZERO AMOUNT
+    if (amount === 0){
+        return createValidationResult(
+            false,
+            transactionId,
+            ERROR_MASSAGE.INVALID_AMOUNT_ZERO
+        )
+    }
 }
 
 console.log(validateAmount(20,2))
