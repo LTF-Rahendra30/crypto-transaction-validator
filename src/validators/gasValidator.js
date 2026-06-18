@@ -53,3 +53,5 @@ export function validateGassPrice(gasPrice,transactionId){
 
     return createValidationResult(true,transactionId);
 }
+
+// console.log(validateGassPrice(10100,1))
