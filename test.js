@@ -8,7 +8,7 @@ import fs from "fs"; // file syetem module (built in Node.js)
 // Read JSON file (sampleTransactions.json)
 // Parse JSON → JavaScript array
 const sampleData = JSON.parse(
-    fs.readFileSync("./data/sampleTransaction.json","utf-8")
+    fs.readFileSync("./data/sampleTransactions.json","utf-8")
 );
 
 // ======= RUN VALIDATION ON ALL TRANSACTION ==========
@@ -21,7 +21,7 @@ sampleData.forEach((transaction) => {
 
     // print result
     console.log(`\nTransaction ID ${result.transactionId}`);
-    console.log(`\nStatus: ${result.isValid ? "VALID" : "INVALID"}`);
+    console.log(`\nStatus: ${result.isValid ? "✅ VALID" : "❌ INVALID"}`);
     console.log(`\nSumarry ${result.summary}`);
 
     // If error, print detail
@@ -37,10 +37,10 @@ sampleData.forEach((transaction) => {
 
 // ====== SUMMARY =========
 const allResult = sampleData.map(validateTransaction);
-const validCount = allResult.filter((r) => r.isValid).lenght;
-const invalidCount = allResult.forEach((r) => !r.isValid).lenght;
+const validCount = allResult.filter((r) => r.isValid).length;
+const invalidCount = allResult.filter((r) => !r.isValid).length;
 
 console.log("\n📊 SUMMARY");
-console.log(`Total transactions: ${allResults.length}`);
+console.log(`Total transactions: ${allResult.length}`);
 console.log(`Valid: ${validCount}`);
 console.log(`Invalid: ${invalidCount}`);

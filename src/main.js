@@ -78,6 +78,6 @@ export function validateTransaction(transaction){
 //   gasPrice: 40
 // };
 
-// // Pakai function:
+// // Use function:
 // const result = validateTransaction(transaction);
 // console.log(result);
