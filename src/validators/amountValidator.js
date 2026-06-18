@@ -15,6 +15,7 @@ import { ERROR_MASSAGE,createValidationResult } from "../utils/errors.js";
 
 export function validateAmount(amount,transactionId){
 
+    // TYPE IS NUMBER 
     if (typeof amount !== 'number'){
         return(
             false,
@@ -22,7 +23,17 @@ export function validateAmount(amount,transactionId){
             `Amount must be a number, got ${typeof amount}`
         );
     }
+    
+    // CHECK INFINITY OR NaN 
+    if (!isFinite(amount)){
+        return createValidationResult(
+            false,
+            transactionId,
+            "Amount must be finite"
+        );
+    }
 
+    return createValidationResult(true,transactionId);
 }
 
-console.log(validateAmount("jjuwdwv"))
+console.log(validateAmount(20,2))
