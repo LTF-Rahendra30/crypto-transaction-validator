@@ -13,3 +13,25 @@ import { ERROR_MASSAGE,createValidationResult } from "../utils/errors.js";
  * Example invalid: 0, -10, 1500, Infinity
  */
 
+export function validateGassPrice(gasPrice,transactionId){
+
+    // TYPE IS NUMBER 
+    if (typeof gasPrice !== 'number'){
+        return createValidationResult(
+            false,
+            transactionId,
+            `Gas Price must be a number, got ${typeof gasPrice}`
+        );
+    }
+
+    // CHECK INFINITY OR NaN 
+    if (!isFinite(gasPrice)){
+        return createValidationResult(
+            false,
+            transactionId,
+            "Amount must be finite"
+        );
+    }
+    
+
+}
