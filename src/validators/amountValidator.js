@@ -33,6 +33,15 @@ export function validateAmount(amount,transactionId){
         );
     }
 
+    // CHECK NEGATIVE AMOUNT
+
+    if (amount < 0){
+        return createValidationResult(
+            false,
+            transactionId,
+            ERROR_MASSAGE.INVALID_AMOUNT_NEGATIF
+        )
+    }
     return createValidationResult(true,transactionId);
 }
 
