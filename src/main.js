@@ -45,5 +45,11 @@ export function validateTransaction(transaction){
     }
 
     // Validation gas
-    const gasValidation = validateGassPrice()
+    const gasValidation = validateGassPrice(transaction.gasPrice,transaction.id);
+    if (!gasValidation.isValid){
+        errors.push({
+            field: "gasPrice",
+            reason: gasPriceValidation.reason,
+        });
+    }
 }
