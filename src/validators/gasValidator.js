@@ -29,9 +29,27 @@ export function validateGassPrice(gasPrice,transactionId){
         return createValidationResult(
             false,
             transactionId,
-            "Amount must be finite"
+            `Gas price must be a finite number, got ${gasPrice}`
         );
     }
-    
 
+    // CHECK MINIMUM FEE
+    if (gasPrice < 1){
+        return createValidationResult(
+            false,
+            transactionId,
+            ERROR_MASSAGE.INVALID_GAS_PRICE_LOW
+        );
+    }
+
+    // CHECK MAXIMUM FEE
+    if (gasPrice > 1000){
+        return createValidationResult(
+            false,
+            transactionId,
+            ERROR_MASSAGE.INVALID_GAS_PRICE_HIGH
+        );
+    }
+
+    return createValidationResult(true,transactionId);
 }
