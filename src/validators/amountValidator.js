@@ -42,8 +42,7 @@ export function validateAmount(amount,transactionId){
             ERROR_MASSAGE.INVALID_AMOUNT_NEGATIF
         )
     }
-    return createValidationResult(true,transactionId);
-
+    
     // CHECK ZERO AMOUNT
     if (amount === 0){
         return createValidationResult(
@@ -52,6 +51,8 @@ export function validateAmount(amount,transactionId){
             ERROR_MASSAGE.INVALID_AMOUNT_ZERO
         )
     }
+
+    return createValidationResult(true,transactionId);
 }
 
-console.log(validateAmount(20,2))
+// console.log(validateAmount(9,2))
