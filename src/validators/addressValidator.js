@@ -38,4 +38,27 @@ export function validateAddress(address,transactionId){
         );
     }
 
+    // CHECK IS TOTALY LENGTH EXACLY 42
+    if (address.length !== 42){
+        return createValidationResult(
+            false,
+            transactionId,
+            ERROR_MASSAGE.INVALID_ADDRESS_FORMAT
+        );
+    }
+
+    // CHECK HEXADECIMAL FORMAT, after "0x" (0-9, a-f)
+    const hexPart = address.slice(2);
+    const isHexadecimal = /^[0-9a-F{40}$]/.test(hexPart);
+
+    if (!isHexadecimal){
+        return createValidationResult(
+            false,
+            transactionId,
+            ERROR_MASSAGE.INVALID_ADDRESS_FORMAT
+        );
+    }
+
+    // ALL CHECK PART
+    return createValidationResult(true,transactionId);
 }
