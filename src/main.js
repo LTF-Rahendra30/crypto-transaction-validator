@@ -70,14 +70,14 @@ export function validateTransaction(transaction){
     };
 }
 
-const transaction = {
-  id: 1,
-  from: "0x742d35Cc6634C0532925a3b844Bc0e7d21409fde",
-  to: "x8ba1f109551bD432803012645Ac136ddd64DBA72",
-  amount: 1.5,
-  gasPrice: -4
-};
+// const transaction = {
+//   id: 1,
+//   from: "0x742d35Cc6634C0532925a3b844Bc0e7d21409fde",
+//   to: "0x8ba1f109551bD432803012645Ac136ddd64DBA72",
+//   amount: 10,
+//   gasPrice: 40
+// };
 
-// Pakai function:
-const result = validateTransaction(transaction);
-console.log(result);
+// // Pakai function:
+// const result = validateTransaction(transaction);
+// console.log(result);
