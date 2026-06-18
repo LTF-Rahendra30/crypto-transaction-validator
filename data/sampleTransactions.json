@@ -26,5 +26,12 @@
     "to": "0x8ba1f109551bD432803012645Ac136ddd64DBA72",
     "amount": 3.0,
     "gasPrice": 25
+  },
+  {
+    "id": 5,
+    "from": "0x742d35Cc6634C0532925a3b844Bc0e7d21409fde",
+    "to": "bz8ba1f109551bD432803012645Ac136ddd64DBA72",
+    "amount": 0,
+    "gasPrice": 2500
   }
 ]
