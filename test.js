@@ -1,5 +1,6 @@
 // ====== IMPORT MODULES ======
 
+import { error } from "console";
 import { validateTransaction } from "./src/main.js";
 import fs from "fs"; // file syetem module (built in Node.js)
 
@@ -22,7 +23,14 @@ sampleData.forEach((transaction) => {
     console.log(`\nTransaction ID ${result.transactionId}`);
     console.log(`\nStatus: ${result.isValid ? "VALID" : "INVALID"}`);
     console.log(`\nSumarry ${result.summary}`);
-}
 
+    // If error, print detail
+    if (result.errors.lenght > 0){
+        console.log("Errors:");
+        result.errors.forEach((error) => {
+            console.log(`    - ${error.field}: ${error.reason}`);
+        });
+    }
 
-)
+    console.log("-".repeat(80));
+});
