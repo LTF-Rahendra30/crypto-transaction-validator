@@ -70,9 +70,6 @@ export function validateTransaction(transaction){
     };
 }
 
-export function formatValidationResult(result){
-    return JSON.stringify(result,null,2);
-}
 // const transaction1 = {
 //   id: 1,
 //   from: "0x742d35Cc6634C0532925a3b844Bc0e7d21409fde",

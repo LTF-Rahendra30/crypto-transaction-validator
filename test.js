@@ -1,7 +1,7 @@
 // ====== IMPORT MODULES ======
 
 import { error } from "console";
-import { validateTransaction ,formatValidationResult} from "./src/main.js";
+import { validateTransaction} from "./src/main.js";
 import fs from "fs"; // file syetem module (built in Node.js)
 
 
