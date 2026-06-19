@@ -1,8 +1,28 @@
 // ====== IMPORT MODULES ======
 
 import { error } from "console";
-import { validateTransaction } from "./src/main.js";
+import { validateTransaction ,formatValidationResult} from "./src/main.js";
 import fs from "fs"; // file syetem module (built in Node.js)
+
+
+// =========== MANUAL CREATE TRANSACTION ============
+const transaction1 = {
+  id: 1,
+  from: "0x742d35Cc6634C0532925a3b844Bc0e7d21409fde",
+  to: "0x8ba1f109551bD432803012645Ac136ddd64DBA72",
+  amount: 10,
+  gasPrice: 40
+};
+const transaction2 = {
+  id: 1,
+  from: "0x742d35Cc6634C0532925a3b844Bc0e7d21409fde",
+  to: "0x8ba1f109551bD432803012645Ac136ddd64DBA72",
+  amount: 0,
+  gasPrice: -40
+}; 
+// Use function:
+const result1 = [validateTransaction(transaction2),validateTransaction(transaction1)]
+console.log(result1);
 
 // ===== LOAD SAMPLE DATA ======
 // Read JSON file (sampleTransactions.json)
