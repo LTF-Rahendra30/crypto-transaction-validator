@@ -21,9 +21,25 @@ const transaction2 = {
   gasPrice: -40
 }; 
 // Use function:
-const result1 = [validateTransaction(transaction2),validateTransaction(transaction1)]
-console.log(result1);
+const result1 = validateTransaction(transaction2)
+console.log(formatValidationResult(result1));
 
+// The Output:
+// {
+//   "transactionId": 1,
+//   "isValid": false,
+//   "errors": [
+//     {
+//       "field": "amount",
+//       "reason": "Amount be greater than 0"
+//     },
+//     {
+//       "field": "gasPrice",
+//       "reason": "Gas price must be at least 1"
+//     }
+//   ],
+//   "summary": "2 validation error(s) found"
+// }
 // ===== LOAD SAMPLE DATA ======
 // Read JSON file (sampleTransactions.json)
 // Parse JSON → JavaScript array
