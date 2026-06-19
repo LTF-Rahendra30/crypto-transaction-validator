@@ -87,4 +87,4 @@ export function validateTransaction(transaction){
 
 // // Use function:
 // const result = [validateTransaction(transaction2),validateTransaction(transaction1)]
-// console.log(errors);
+// console.log(result);

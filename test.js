@@ -14,32 +14,39 @@ const transaction1 = {
   gasPrice: 40
 };
 const transaction2 = {
-  id: 1,
+  id: 2,
   from: "0x742d35Cc6634C0532925a3b844Bc0e7d21409fde",
   to: "0x8ba1f109551bD432803012645Ac136ddd64DBA72",
   amount: 0,
   gasPrice: -40
 }; 
 // Use function:
-const result1 = validateTransaction(transaction2)
-console.log(formatValidationResult(result1));
+const result1 = validateTransaction(transaction1)
+const result2 = validateTransaction(transaction2)
+
+console.log("============= MANUAL TRANSACTION =========")
+console.log(result1);
+console.log(result2);
 
 // The Output:
+// ============= MANUAL TRANSACTION =========
 // {
-//   "transactionId": 1,
-//   "isValid": false,
-//   "errors": [
-//     {
-//       "field": "amount",
-//       "reason": "Amount be greater than 0"
-//     },
-//     {
-//       "field": "gasPrice",
-//       "reason": "Gas price must be at least 1"
-//     }
-//   ],
-//   "summary": "2 validation error(s) found"
+//   transactionId: 1,
+//   isValid: true,
+//   errors: [],
+//   summary: 'Transaction is valid ✓'
 // }
+// {
+//   transactionId: 2,
+//   isValid: false,
+//   errors: [
+//     { field: 'amount', reason: 'Amount be greater than 0' },
+//     { field: 'gasPrice', reason: 'Gas price must be at least 1' }
+//   ],
+//   summary: '2 validation error(s) found'
+// }
+
+
 // ===== LOAD SAMPLE DATA ======
 // Read JSON file (sampleTransactions.json)
 // Parse JSON → JavaScript array
